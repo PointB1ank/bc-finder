@@ -2,7 +2,9 @@ function resetFunction(){
 document.getElementById("playerinputform").reset();
 }
 
-  // Initialize Firebase
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+function initFirebase(){
+    // Initialize Firebase
   var config = {
     apiKey: "AIzaSyDn9H15dCT237yYjpnOxtdqQUNEBxms3sQ",
     authDomain: "bcfind-52146.firebaseapp.com",
@@ -12,3 +14,4 @@ document.getElementById("playerinputform").reset();
     messagingSenderId: "895323885188"
   };
   firebase.initializeApp(config);
+}
