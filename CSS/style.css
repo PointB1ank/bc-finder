@@ -1,0 +1,284 @@
+body{
+   font: 15px/1.5 Arial, Helvetica, sans-serif;
+   padding:0;
+   margin:0;
+   background-color: #222222;
+}
+/* Global */
+.container{
+ width:80%;
+ margin:auto;
+ overflow:hidden;
+ cursor: default;
+}
+
+ul{
+margin:0;
+padding:0;
+}
+
+/* Header **/
+header{
+background:#090909;
+color:#B44335;
+padding-top:30px;
+min-height:70px;
+border-bottom:#B44335 3px solid;
+}
+
+header a {
+color:#ffffff;
+text-decoration:none;
+text-transform uppdercase;
+font-size:20px;
+}
+
+header li{
+float:left;
+display:inline;
+padding: 0 20px 0 20px;
+}
+
+header #title{
+float:left;
+}
+
+header #title h1{
+margin:0;
+}
+
+header nav{
+float:right;
+margin-top:15px;
+}
+
+header .highlight, header .current a{
+color:#ffffff;
+font-weight:bold;
+}
+
+header a:hover{
+color:#B44335
+}
+
+/* Showcase */
+
+#showcase{
+min-height:300px;
+opacity:0.9;
+height: 5%;
+background:url('../img/showcase.png') no-repeat 40% 10%;
+text-align:left;
+color:#ffffff;
+padding-bottom:85px;
+}
+
+#showcase h1{
+margin-top: 15px;
+font-size: 40px;
+}
+
+.buttonwrap{
+padding-bottom: 50px;
+}
+
+#buttons{
+    width:65%;
+    margin:0 auto;
+    white-space: nowrap;
+}
+
+#buttons img{
+max-width:60%;
+max-height:100%;
+}
+
+.about{
+color:#ffffff;
+}
+
+input[type=radio]{
+  display:none;
+}
+.positionselect input[type=checkbox]{
+  display:none;
+}
+
+.regionbuttons label {
+  display: inline-block;
+  background-color: #6F7576;
+  padding: 5px 15px;
+  font-family: Arial;
+  font-size: 20px;
+  margin: -1px;
+  cursor: pointer;
+}
+
+.regionbuttons label:hover{
+  background-color: #999999;
+}
+
+.regionbuttons input[type="radio"]:checked+label {
+   background-color: #B44335;
+}
+
+.regionbuttons{
+  color: #ffffff;
+  text-align: center;
+  font-size:30px;
+  padding-top:10px;
+}
+
+.tierbuttons label {
+  display: inline-block;
+  background-color: #6F7576;
+  padding: 5px 15px;
+  font-family: Arial;
+  font-size: 20px;
+  cursor: pointer;
+  margin: -1px;
+}
+
+.tierbuttons label:hover{
+  background-color: #999999;
+}
+
+.tierbuttons input[type="radio"]:checked+label {
+   background-color: #B44335;
+}
+
+.tierbuttons{
+  color: #ffffff;
+  text-align: center;
+  font-size:30px;
+  padding-top:10px;
+}
+
+.textinputforms{
+  font-size:16px;
+  padding-top:20px;
+  text-align:center;
+  color:#ffffff;
+}
+
+#steamurlform
+{
+width:33%;
+}
+
+#dotabuffform
+{
+width:33%;
+}
+
+#steamurlform {
+    margin-bottom: 20px;
+}
+
+.positionselect{
+  margin-top:20px;
+  text-align: center;
+  color:#ffffff;
+}
+
+.positionselect label {
+  display: inline-block;
+  background-color: #6F7576;
+  padding: 5px 15px;
+  font-family: Arial;
+  font-size: 20px;
+  cursor: pointer;
+  margin:1px;
+}
+
+.positionselect label:hover{
+  background-color: #999999;
+}
+
+.positionselect p{
+  margin:-1px;
+}
+
+.positionselect input[type="radio"]:checked+label {
+   background-color: #B44335;
+}
+.positionselect input[type="checkbox"]:checked+label {
+   background-color: #B44335;
+}
+.otherpositions{
+  text-align: center;
+  margin-top: 20px;
+  color:#ffffff;
+}
+.otherpositions section{
+  display: inline;
+  border-style:outset;
+border-width: 1px;
+margin: 8px;
+padding-right: 3px;
+}
+
+.groupedwith{
+  padding-top: 20px;
+  text-align: center;
+  color:#ffffff;
+}
+
+.groupedwith p{
+  display: inline;
+  color:#ffffff;
+}
+
+.prefvoice{
+  color:#ffffff;
+  padding-top: 10px;
+  text-align: center;
+}
+.prefvoice p{
+  display: inline;
+  position: relative;
+  bottom: 15px;
+}
+.prefvoice section{
+  display: inline;
+}
+
+.prefvoice  label{
+  cursor: pointer;
+}
+
+.prefvoice input[type="radio"]:checked+img {
+  border-color: #09FF14;
+  border-style:outset;
+  padding-top: 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  border-width: 3px;
+}
+
+.othercomments{
+  color: #ffffff;
+  text-align: center;
+  margin-top: -15px;
+}
+.input{
+  margin-top: -10px;
+}
+
+textarea {
+    resize: none;
+}
+
+.submitter{
+  text-align: center;
+  font-size: 20px;
+}
+
+footer{
+background:#090909;
+color:#B44335;
+position:fixed;
+bottom:0;
+text-align: center;
+width:100%;
+}

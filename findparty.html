@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html>
+   <head>
+      <meta charset ="utf-8">
+      <meta name="viewport" content="width=device-width">
+      <meta name="description" content="Battlecup weekly group finder for players and party.">
+      <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
+      <meta name="author" content="Joseph Carswell">
+      <title>BattleCup Group Finder</title>
+      <link rel="stylesheet" href="./css/style.css">
+   </head>
+   <body>
+   <div class="wrapper">
+      <header>
+
+      <div class="container">
+      <div id="title">
+      <h1><span class="highlight">Dota 2 Battle Cup</span> Group Finder</h1>
+      </div>
+      <nav>
+        <ul>
+          <li class ="current"><a href="index.html">Main</a></li>
+          <li class ="current"><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+      </div>
+      </header>
+      <div class="findplayerinputform">
+	    <div class="container">
+      <form id="playerinputform">
+	<div class="regionbuttons">
+  <span class="regionbutton1">
+	<input type="radio" name="region" id="North America" value="North America"/>
+	<label for="North America">North America</label>
+</span>
+<span class="regionbutton2">
+	<input type="radio" name="region" id="Europe" value="Europe"/>
+	<label for="Europe">Europe</label>
+</span>
+	</div>
+
+  <div class="tierbuttons">
+  <span class="tierbutton3">
+	<input type="radio" name="tier" id="Tier 3" value="Tier 3"/>
+	<label for="Tier 3">Tier 3</label>
+</span>
+<span class="tierbutton4">
+	<input type="radio" name="tier" id="Tier 4" value="Tier 4"/>
+	<label for="Tier 4">Tier 4</label>
+</span>
+<span class="tierbutton5">
+	<input type="radio" name="tier" id="Tier 5" value="Tier 5"/>
+	<label for="Tier 5">Tier 5</label>
+</span>
+<span class="tierbutton6">
+	<input type="radio" name="tier" id="Tier 6" value="Tier 6"/>
+	<label for="Tier 6">Tier 6</label>
+</span>
+<span class="tierbutton7">
+	<input type="radio" name="tier" id="Tier 7" value="Tier 7"/>
+	<label for="Tier 7">Tier 7</label>
+</span>
+<span class="tierbutton8">
+	<input type="radio" name="tier" id="Tier 8" value="Tier 8"/>
+	<label for="Tier 8">Tier 8</label>
+</span>
+	</div>
+
+<div class="textinputforms">
+  Steam URL:
+  <input id="steamurlform" type="text" name="steamurl" maxlength="80" placeholder="Ex: http://steamcommunity.com/id/username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ex: http://steamcommunity.com/id/username'" /><br>
+
+  Dotabuff: &#8203; &#8203; &#8203; &#8203; &#8203;
+  <input id="dotabuffform" type="text" name="dotabuff" maxlength="80" placeholder="(Optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = '(Optional)'"><br>
+</div>
+
+
+<div class="positionselect">
+<span class="position1">
+	<input type="radio" name="position" id="position1" value="position1"/>
+	<label for="position1">1. Carry</label>
+</span>
+<span class="position2">
+	<input type="radio" name="position" id="position2" value="position2"/>
+	<label for="position2">2. Mid</label>
+</span>
+<span class="position3">
+	<input type="radio" name="position" id="position3" value="position3"/>
+	<label for="position3">3. Offlane</label>
+</span>
+<span class="position4">
+	<input type="radio" name="position" id="position4" value="position4"/>
+	<label for="position4">4. Roamer / Support</label>
+</span>
+<span class="position5">
+	<input type="radio" name="position" id="position5" value="position5"/>
+	<label for="position5">5. Support</label>
+</span>
+</div>
+
+<div class="otherpositions">
+  Other Positions I play:  &#8203; &#8203;
+  <section id="check1">
+<input type="checkbox" name="position1check" id="position1check" value="position1check">
+<label for="position1check">Carry</label></section>
+ <section id="check2">
+<input type="checkbox" name="position2check" id="position2check" value="position2check">
+<label for="position2check">Mid</label></section>
+<section id="check3">
+<input type="checkbox" name="position3check" id="position3check" value="position3check">
+<label for="position3check">Offlaner</label></section>
+<section id="check4">
+<input type="checkbox" name="position4check" id="position4check" value="position4check">
+<label for="position4check">Roamer / Support</label></section>
+<section id="check5">
+<input type="checkbox" name="position5check" id="position5check" value="position5check">
+<label for="position5check">Support</label> </section>
+</div>
+
+<div class="groupedwith">
+<p> Number of players with you: </p>
+<select name="cars">
+ <option value="0">0</option>
+ <option value="1">1</option>
+ <option value="2">2</option>
+ <option value="3">3</option>
+</select>
+</div>
+
+<div class="prefvoice">
+<p>Preferred Communication:</p>
+<section id="logo1"><label>
+  <input type="radio" name="dota" value="dotavoice" />
+<img src="./img/Discord-Logo-Color.svg" height="42" width="42">
+</section></label><section id="logo2">
+  <label>
+<input type="radio" name="dota" value="discordvoice" />
+<img src="./img/dota_2_icon.png" height="42" width="42">
+</section></label>
+</div>
+
+<div class="othercomments">
+  <p>Miscellaneous Information:</p>
+  <form>
+ <textarea class="input" rows="3" cols="50" maxlength="150"
+ placeholder="150 char limit" onfocus="this.placeholder = ''"
+ onblur="this.placeholder = '150 char limit'"></textarea>
+</div>
+</form>
+<div class="submitter">
+<input type="submit" value="Submit">
+<input type="reset" value="Reset" onclick="resetFunction()">
+</div>
+<script>
+function resetFunction(){
+document.getElementById("playerinputform").reset();
+}
+</script>
+  </div>
+</div>
+     <footer>
+     <p>Battle Cup Group Finder created by PointB1ank - 2017</p>
+     </footer>
+   </div>
+   </body>
+</html>
