@@ -11,3 +11,9 @@
   };
   firebase.initializeApp(config);
 </script>
+
+<script>
+function resetFunction(){
+document.getElementById("playerinputform").reset();
+}
+</script>
