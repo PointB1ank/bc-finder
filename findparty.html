@@ -8,11 +8,11 @@
       <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
       <meta name="author" content="Joseph Carswell">
       <title>BattleCup Group Finder</title>
-      <link rel="stylesheet" href="CSS/style.css">
-       
+      <link rel="stylesheet" href="./css/style.css">
+      <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
    </head>
    <body>
-<script src="bcfscripts.js"></script>	   
+  <script src="bcfscripts.js"></script>
    <div class="wrapper">
       <header>
 
@@ -30,9 +30,11 @@
       </header>
       <div class="findplayerinputform">
 	    <div class="container">
-      <form id="playerinputform">
+
 	<div class="regionbuttons">
   <span class="regionbutton1">
+    <form id="playerinputform">
+  <input type="radio" form id="regiontest">
 	<input type="radio" name="region" id="North America" value="North America"/>
 	<label for="North America">North America</label>
 </span>
@@ -41,6 +43,7 @@
 	<label for="Europe">Europe</label>
 </span>
 	</div>
+
 
   <div class="tierbuttons">
   <span class="tierbutton3">
@@ -71,7 +74,7 @@
 
 <div class="textinputforms">
   Steam URL:
-  <input id="steamurlform" type="text" name="steamurl" maxlength="80" placeholder="Ex: http://steamcommunity.com/id/username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ex: http://steamcommunity.com/id/username'" /><br>
+  <input type ="text" id="steamurlform"  name="steamurl" maxlength="80" placeholder="Ex: http://steamcommunity.com/id/username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ex: http://steamcommunity.com/id/username'" /><br>
 
   Dotabuff: &#8203; &#8203; &#8203; &#8203; &#8203;
   <input id="dotabuffform" type="text" name="dotabuff" maxlength="80" placeholder="(Optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = '(Optional)'"><br>
@@ -104,40 +107,81 @@
 <div class="otherpositions">
   Other Positions I play:  &#8203; &#8203;
   <section id="check1">
-<input type="checkbox" name="position1check" id="position1check" value="position1check">
+<input type="checkbox" name="position1check" id="position1check" value="pos1">
 <label for="position1check">Carry</label></section>
  <section id="check2">
-<input type="checkbox" name="position2check" id="position2check" value="position2check">
+<input type="checkbox" name="position2check" id="position2check" value="pos2">
 <label for="position2check">Mid</label></section>
 <section id="check3">
-<input type="checkbox" name="position3check" id="position3check" value="position3check">
+<input type="checkbox" name="position3check" id="position3check" value="pos3">
 <label for="position3check">Offlaner</label></section>
 <section id="check4">
-<input type="checkbox" name="position4check" id="position4check" value="position4check">
+<input type="checkbox" name="position4check" id="position4check" value="pos4">
 <label for="position4check">Roamer / Support</label></section>
 <section id="check5">
-<input type="checkbox" name="position5check" id="position5check" value="position5check">
+<input type="checkbox" name="position5check" id="position5check" value="pos5">
 <label for="position5check">Support</label> </section>
 </div>
 
+<div class="groupedwrap">
 <div class="groupedwith">
 <p> Number of players with you: </p>
-<select name="cars">
- <option value="0">0</option>
- <option value="1">1</option>
- <option value="2">2</option>
- <option value="3">3</option>
+<select name="playercount" id="playercount" onkeydown = "test()">
+ <option value="0" onclick="zeroSelect()">0</option>0</option>
+ <option value="1" onclick="oneSelect()">1</option>
+ <option value="2" onclick="twoSelect()">2</option>
+ <option value="3" onclick="threeSelect()">3</option>
 </select>
 </div>
 
+<div class="groupedaddon1" id="groupedaddon1">
+  <p> Role: </p>
+  <select name="playeradd1" id="playeradd1">
+    <option value="------">------</option>
+   <option value="Carry">Carry</option>
+   <option value="Mid">Mid</option>
+   <option value="Offlaner">Offlaner</option>
+   <option value="Roamer">Roamer</option>
+   <option value="Support">Support</option>
+   <option value="Any">Any Role</option>
+  </select>
+</div>
+
+<div class="groupedaddon2" id="groupedaddon2">
+  <p> Role: </p>
+  <select name="playeradd2" id="playeradd2">
+  <option value="------">------</option>
+   <option value="Carry">Carry</option>
+   <option value="Mid">Mid</option>
+   <option value="Offlaner">Offlaner</option>
+   <option value="Roamer">Roamer</option>
+   <option value="Support">Support</option>
+   <option value="Any">Any Role</option>
+  </select>
+</div>
+
+<div class="groupedaddon3" id="groupedaddon3">
+  <p> Role: </p>
+  <select name="playeradd3" id="playeradd3">
+    <option value="------">------</option>
+   <option value="Carry">Carry</option>
+   <option value="Mid">Mid</option>
+   <option value="Offlaner">Offlaner</option>
+   <option value="Roamer">Roamer</option>
+   <option value="Support">Support</option>
+   <option value="Any">Any Role</option>
+  </select>
+</div>
+
+</div>
 <div class="prefvoice">
 <p>Preferred Communication:</p>
 <section id="logo1"><label>
-  <input type="radio" name="dota" value="dotavoice" />
+  <input type="radio" name="dota" id="discord" value="discordvoice" />
 <img src="./img/Discord-Logo-Color.svg" height="42" width="42">
 </section></label><section id="logo2">
   <label>
-<input type="radio" name="dota" value="discordvoice" />
+<input type="radio" name="dota" id="dota" value="dotavoice"/>
 <img src="./img/dota_2_icon.png" height="42" width="42">
 </section></label>
 </div>
@@ -145,15 +189,16 @@
 <div class="othercomments">
   <p>Miscellaneous Information:</p>
   <form>
- <textarea class="input" rows="3" cols="50" maxlength="150"
+ <textarea class="input" name="misc" id="misbox" rows="3" cols="50" maxlength="150"
  placeholder="150 char limit" onfocus="this.placeholder = ''"
  onblur="this.placeholder = '150 char limit'"></textarea>
 </div>
 </form>
 <div class="submitter">
-<input type="submit" value="Submit">
-<input type="reset" value="Reset" onclick="resetFunction()">
+<input type="submit" value="Submit" onclick="submitForm()">
+<input type="reset" value="Reset" onclick="oneSelect()">
 </div>
+</form>
   </div>
 </div>
      <footer>

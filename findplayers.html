@@ -8,10 +8,15 @@
       <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
       <meta name="author" content="Joseph Carswell">
       <title>BattleCup Group Finder</title>
-      <link rel="stylesheet" href="CSS/style.css">
+      <link rel="stylesheet" href="./css/style.css">
+       <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
+
+
+
    </head>
    <body>
-   <script src="bcfscripts.js"></script>      
+     <script src="bcfscripts.js"></script>
+
    <div class="wrapper">
       <header>
 
@@ -95,21 +100,20 @@
 <div class="prefvoice">
 <p>Method of Communication:</p>
 <section id="logo1"><label>
-  <input type="radio" name="dota" value="dotavoice" />
-<img src="./img/Discord-Logo-Color.svg" height="42" width="42">
+  <input type="radio" name="voice" value="dotavoice" />
+    <img src="./img/Discord-Logo-Color.svg" height="42" width="42"></label>
 </section></label><section id="logo2">
   <label>
-<input type="radio" name="dota" value="discordvoice" />
-<img src="./img/dota_2_icon.png" height="42" width="42">
+<input type="radio" name="voice" value="discordvoice" />
+      <img src="./img/dota_2_icon.png" height="42" width="42"></label>
 </section></label>
 </div>
 
 </form>
 <div class="submitter">
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" onclick="submitForm()">
 <input type="reset" value="Reset" onclick="resetFunction()">
 </div>
-		    
   </div>
 </div>
      <footer>
