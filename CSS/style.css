@@ -79,13 +79,13 @@ font-size: 40px;
 
 .buttonwrap{
 padding-bottom: 50px;
+    text-align: center;
 }
 
 #buttons{
     width:65%;
     margin:0 auto;
     white-space: nowrap;
-   text-alight:center;
 }
 
 #buttons img{
@@ -313,6 +313,7 @@ textarea {
 .submitter{
   text-align: center;
   font-size: 20px;
+  margin-top: 5px;
 }
 
 .mainresults{
@@ -327,6 +328,12 @@ ul{
 li{
 
   display: block;
+}
+
+#resultdisplay{
+   color: #ffffff;
+    text-align: center;
+    display: none;
 }
 
 footer{

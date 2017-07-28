@@ -114,6 +114,19 @@ var other3 = document.getElementById('playeradd3').value;
 }
 
 
+//submit for results
+  function search(){
+
+          document.getElementById('resultdisplay').style.display = 'block';
+          document.getElementById('searcher').style.display = 'none';
+          document.getElementById('reseter').style.display = 'none';
+
+          printData(gotData);
+
+  }
+
+
+
 
 //reset function
 function resetFunction(){
@@ -143,20 +156,20 @@ function threeSelect(){
   document.getElementById("groupedaddon3").style.display = "inline-block"
 }
 
-  function printData()
-  {
+  function printData(funcName) {
 
       database = firebase.database();
       var ref = database.ref();
 
-      ref.on("value", gotData, errData);
+      ref.on("value", funcName, errData);
 
       function errData(error) {
           console.log("Something went wrong.");
           console.log(error);
       }
 
-// The data comes back as an object
+  }
+// The data comes back as an object - all data
       function gotData(data) {
 
           var div = document.getElementById('playerlist');
@@ -168,23 +181,103 @@ function threeSelect(){
           // Grab all the keys to iterate over the object
           var keys = Object.keys(players);
 
+          //region
+          if (document.getElementById('North America').checked) {
+              var region = document.getElementById('North America').value;
+          }
+          else if (document.getElementById('Europe').checked) {
+              var region = document.getElementById('Europe').value;
+          }
+          else{
+              region = '';
+          }
+
+          //tier
+          if (document.getElementById('Tier 3').checked) {
+              var tier = document.getElementById('Tier 3').value;
+          }
+          else if (document.getElementById('Tier 4').checked) {
+              var tier = document.getElementById('Tier 4').value;
+          }
+          else  if (document.getElementById('Tier 5').checked) {
+              var tier = document.getElementById('Tier 5').value;
+          }
+          else  if (document.getElementById('Tier 6').checked) {
+              var tier = document.getElementById('Tier 6').value;
+          }
+          else  if (document.getElementById('Tier 7').checked) {
+              var tier = document.getElementById('Tier 7').value;
+          }
+          else if (document.getElementById('Tier 8').checked) {
+              var tier = document.getElementById('Tier 8').value;
+          }
+          else tier = '';
+
+          //position
+          if (document.getElementById('position1').checked) {
+              var position1 = document.getElementById('position1').value;
+          }
+          if (document.getElementById('position2').checked) {
+              var position2 = document.getElementById('position2').value;
+          }
+           if (document.getElementById('position3').checked) {
+              var position3 = document.getElementById('position3').value;
+          }
+           if (document.getElementById('position4').checked) {
+              var position4 = document.getElementById('position4').value;
+          }
+           if (document.getElementById('position5').checked) {
+              var position5 = document.getElementById('position5').value;
+          }
+
+
           // Loop through array
           var entry = document.createElement('li');
           for (var i = 0; i < keys.length; i++) {
               var key = keys[i];
               var player = players[key];
-              var test = player.Role;
 
-              //var table = document.getElementById('playerlist');
+              if(player.Region == region && player.Tier == tier && (player.Role == position1 || player.Role == position2 || player.Role == position3 || player.Role == position4 || player.Role == position5)){
               var table = document.getElementById('playerlist');
               entry.appendChild(document.createTextNode(player.Region + " " + player.Tier + " " + player.SteamURL + " " + player.Dotabuff + " " + player.Role
-                  + "  " + player.Also + "   " + player.Others + " " + player.Other1 + " " +  player.Other2 + "  " +
+                  + "  " + player.Also + "   " + player.Others + " " + player.Other1 + " " + player.Other2 + "  " +
                   player.Other3 + " " + player.Comms + " " + player.Misc));
               var br = document.createElement("br");
               entry.appendChild(br);
-             table.appendChild(entry);
-
-
+              table.appendChild(entry);
           }
+          }
+
+      }
+
+  // The data comes back as an object - all data
+  function gotAllData(data) {
+
+      var div = document.getElementById('playerlist');
+      while (div.firstChild) {
+          div.removeChild(div.firstChild);
+      }
+
+      var players = data.val();
+      // Grab all the keys to iterate over the object
+      var keys = Object.keys(players);
+
+
+      // Loop through array
+      var entry = document.createElement('li');
+      for (var i = 0; i < keys.length; i++) {
+          var key = keys[i];
+          var player = players[key];
+
+
+          var table = document.getElementById('playerlist');
+          entry.appendChild(document.createTextNode(player.Region + " " + player.Tier + " " + player.SteamURL + " " + player.Dotabuff + " " + player.Role
+              + "  " + player.Also + "   " + player.Others + " " + player.Other1 + " " + player.Other2 + "  " +
+              player.Other3 + " " + player.Comms + " " + player.Misc));
+          var br = document.createElement("br");
+          entry.appendChild(br);
+          table.appendChild(entry);
+
+
       }
   }
