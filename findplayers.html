@@ -8,7 +8,7 @@
       <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
       <meta name="author" content="Joseph Carswell">
       <title>BattleCup Group Finder</title>
-      <link rel="stylesheet" href="CSS/style.css">
+      <link rel="stylesheet" href="./css/style.css">
        <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
 
 
@@ -37,38 +37,38 @@
       <form id="playerinputform">
 	<div class="regionbuttons">
   <span class="regionbutton1">
-	<input type="radio" name="region" id="North America" value="North America"/>
+	<input type="radio" name="region" id="North America" value="North America" onclick="printData(gotData)"/>
 	<label for="North America">North America</label>
 </span>
 <span class="regionbutton2">
-	<input type="radio" name="region" id="Europe" value="Europe"/>
+	<input type="radio" name="region" id="Europe" value="Europe" onclick="printData(gotData)"/>
 	<label for="Europe">Europe</label>
 </span>
 	</div>
 
   <div class="tierbuttons">
   <span class="tierbutton3">
-	<input type="radio" name="tier" id="Tier 3" value="Tier 3"/>
+	<input type="radio" name="tier" id="Tier 3" value="Tier 3" onclick="printData(gotData)"/>
 	<label for="Tier 3">Tier 3</label>
 </span>
 <span class="tierbutton4">
-	<input type="radio" name="tier" id="Tier 4" value="Tier 4"/>
+	<input type="radio" name="tier" id="Tier 4" value="Tier 4" onclick="printData(gotData)"/>
 	<label for="Tier 4">Tier 4</label>
 </span>
 <span class="tierbutton5">
-	<input type="radio" name="tier" id="Tier 5" value="Tier 5"/>
+	<input type="radio" name="tier" id="Tier 5" value="Tier 5" onclick="printData(gotData)"/>
 	<label for="Tier 5">Tier 5</label>
 </span>
 <span class="tierbutton6">
-	<input type="radio" name="tier" id="Tier 6" value="Tier 6"/>
+	<input type="radio" name="tier" id="Tier 6" value="Tier 6" onclick="printData(gotData)"/>
 	<label for="Tier 6">Tier 6</label>
 </span>
 <span class="tierbutton7">
-	<input type="radio" name="tier" id="Tier 7" value="Tier 7"/>
+	<input type="radio" name="tier" id="Tier 7" value="Tier 7" onclick="printData(gotData)"/>
 	<label for="Tier 7">Tier 7</label>
 </span>
 <span class="tierbutton8">
-	<input type="radio" name="tier" id="Tier 8" value="Tier 8"/>
+	<input type="radio" name="tier" id="Tier 8" value="Tier 8" onclick="printData(gotData)"/>
 	<label for="Tier 8">Tier 8</label>
 </span>
 	</div>
@@ -76,46 +76,53 @@
 <div class="positionselect">
 <span class="position1">
   <p>Positions needed: (select all that apply)</p>
-	<input type="checkbox" name="position" id="position1" value="position1"/>
+	<input type="checkbox" name="position" id="position1" value="position1" onclick="printData(gotData)"/>
 	<label for="position1">1. Carry</label>
 </span>
 <span class="position2">
-	<input type="checkbox" name="position" id="position2" value="position2"/>
+	<input type="checkbox" name="position" id="position2" value="position2" onclick="printData(gotData)"/>
 	<label for="position2">2. Mid</label>
 </span>
 <span class="position3">
-	<input type="checkbox" name="position" id="position3" value="position3"/>
+	<input type="checkbox" name="position" id="position3" value="position3" onclick="printData(gotData)"/>
 	<label for="position3">3. Offlane</label>
 </span>
 <span class="checkbox">
-	<input type="checkbox" name="position" id="position4" value="position4"/>
+	<input type="checkbox" name="position" id="position4" value="position4" onclick="printData(gotData)"/>
 	<label for="position4">4. Roamer / Support</label>
 </span>
 <span class="position5">
-	<input type="checkbox" name="position" id="position5" value="position5"/>
+	<input type="checkbox" name="position" id="position5" value="position5" onclick="printData(gotData)"/>
 	<label for="position5">5. Support</label>
 </span>
 </div>
 
-<div class="prefvoice">
-<p>Method of Communication:</p>
-<section id="logo1"><label>
-  <input type="radio" name="voice" value="dotavoice" />
-    <img src="./img/Discord-Logo-Color.svg" height="42" width="42"></label>
-</section></label><section id="logo2">
-  <label>
-<input type="radio" name="voice" value="discordvoice" />
-      <img src="./img/dota_2_icon.png" height="42" width="42"></label>
-</section></label>
-</div>
+<!--<div class="prefvoice">-->
+<!--<p>Method of Communication:</p>-->
+<!--<section id="logo1"><label>-->
+  <!--<input type="radio" name="voice" value="dotavoice" />-->
+    <!--<img src="./img/Discord-Logo-Color.svg" height="42" width="42"></label>-->
+<!--</section></label><section id="logo2">-->
+  <!--<label>-->
+<!--<input type="radio" name="voice" value="discordvoice" />-->
+      <!--<img src="./img/dota_2_icon.png" height="42" width="42"></label>-->
+<!--</section></label>-->
+<!--</div>-->
 
 </form>
 <div class="submitter">
-<input type="submit" value="Submit" onclick="submitForm()">
-<input type="reset" value="Reset" onclick="resetFunction()">
+    <input type="submit" value="Submit" id="searcher" onclick="search()">
+<input type="reset" value="Reset" id="reseter" onclick="resetFunction()">
 </div>
   </div>
 </div>
+       <div id="resultdisplay">
+           <ul id="playerlist">
+
+           </ul>
+
+       </div>
+
      <footer>
      <p>Battle Cup Group Finder created by PointB1ank - 2017</p>
      </footer>
