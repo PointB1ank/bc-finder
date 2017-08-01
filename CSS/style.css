@@ -365,7 +365,7 @@ table { width: 100%; }
 
 #tableID{
      /* uncomment below line out when dev is complete*/
-    /*display: none;*/
+    display: none;
 }
 
 /* unvisited link */
