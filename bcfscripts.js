@@ -117,11 +117,12 @@ var other3 = document.getElementById('playeradd3').value;
 //submit for results
   function search(){
 
-          document.getElementById('resultdisplay').style.display = 'block';
-          document.getElementById('searcher').style.display = 'none';
-          document.getElementById('reseter').style.display = 'none';
+      document.getElementById('resultdisplay').style.display = 'none';
+      document.getElementById('tableID').style.display='block';
+      document.getElementById('searcher').style.display = 'none';
+      document.getElementById('reseter').style.display = 'none';
 
-          printData(gotData);
+           printData(gotData);
 
   }
 
@@ -133,28 +134,17 @@ function resetFunction(){
 document.getElementById("playerinputform").reset();
 }
 
+  function display_div(e){
+    if(e == 0){
+      document.getElementById('groupedaddon1').style.display = "none";
+      document.getElementById('groupedaddon2').style.display = "none";
+      document.getElementById('groupedaddon3').style.display = "none";
+    }
+      document.getElementById('groupedaddon' + e).style.display = "inline-block";
 
-function zeroSelect(){
-  document.getElementById("groupedaddon1").style.display = "none"
-  document.getElementById("groupedaddon2").style.display = "none"
-  document.getElementById("groupedaddon3").style.display = "none"
-}
 
-function oneSelect(){
-  document.getElementById("groupedaddon1").style.display = "inline-block"
-  document.getElementById("groupedaddon2").style.display = "none"
-  document.getElementById("groupedaddon3").style.display = "none"
-}
-function twoSelect(){
-  document.getElementById("groupedaddon1").style.display = "inline-block"
-  document.getElementById("groupedaddon2").style.display = "inline-block"
-  document.getElementById("groupedaddon3").style.display = "none"
-}
-function threeSelect(){
-  document.getElementById("groupedaddon1").style.display = "inline-block"
-  document.getElementById("groupedaddon2").style.display = "inline-block"
-  document.getElementById("groupedaddon3").style.display = "inline-block"
-}
+  }
+
 
   function printData(funcName) {
 
@@ -172,7 +162,8 @@ function threeSelect(){
 // The data comes back as an object - all data
       function gotData(data) {
 
-          var div = document.getElementById('playerlist');
+
+          var div = document.getElementById('resultsTable');
           while(div.firstChild){
               div.removeChild(div.firstChild);
           }
@@ -231,20 +222,78 @@ function threeSelect(){
           }
 
 
+          //Header for table
+          var table = document.getElementById("resultsTable");
+          var header = table.createTHead();
+           var row2 = header.insertRow(0);
+          var cell1 = row2.insertCell(0);
+          cell1.appendChild(document.createTextNode("Steam URL:"));
+          var cell2 = row2.insertCell(1);
+          cell2.appendChild(document.createTextNode("Dotabuff URL:"));
+          var cell3 = row2.insertCell(2);
+          cell3.appendChild(document.createTextNode("Main Position:"));
+          var cell4 = row2.insertCell(3);
+          cell4.appendChild(document.createTextNode("Secondary Position(s):"));
+          var cell5 = row2.insertCell(4);
+          cell5.appendChild(document.createTextNode("Grouped with:"));
+          var cell6 = row2.insertCell(5);
+          var comText = "Communication preference:";
+          cell6.innerHTML="Comms:";
+          cell6.style.maxWidth= "40px";
+          var cell7 = row2.insertCell(6);
+          cell7.innerHTML="Miscellaneous <br> Information:";
+
           // Loop through array
-          var entry = document.createElement('li');
           for (var i = 0; i < keys.length; i++) {
               var key = keys[i];
               var player = players[key];
 
-              if(player.Region == region && player.Tier == tier && (player.Role == position1 || player.Role == position2 || player.Role == position3 || player.Role == position4 || player.Role == position5)){
-              var table = document.getElementById('playerlist');
-              entry.appendChild(document.createTextNode(player.Region + " " + player.Tier + " " + player.SteamURL + " " + player.Dotabuff + " " + player.Role
-                  + "  " + player.Also + "   " + player.Others + " " + player.Other1 + " " + player.Other2 + "  " +
-                  player.Other3 + " " + player.Comms + " " + player.Misc));
-              var br = document.createElement("br");
-              entry.appendChild(br);
-              table.appendChild(entry);
+              if(player.Region === region && player.Tier === tier && (player.Role === position1 || player.Role === position2|| player.Role === position3 || player.Role === position4 || player.Role === position5)){
+              // var list = document.getElementById('playerlist');
+              // entry.appendChild(document.createTextNode(player.Region + " " + player.Tier + " " + player.SteamURL + " " + player.Dotabuff + " " + player.Role
+              //     + "  " + player.Also + "   " + player.Others + " " + player.Other1 + " " + player.Other2 + "  " +
+              //     player.Other3 + " " + player.Comms + " " + player.Misc));
+              // var br = document.createElement("br");
+              // entry.appendChild(br);
+                  // list.appendChild(entry);
+
+                //table that receives values
+              var row = header.insertRow(1);
+              var cell1 = row.insertCell(0);
+              var cell2 = row.insertCell(1);
+              var cell3 = row.insertCell(2);
+              var cell4 = row.insertCell(3);
+              var cell5 = row.insertCell(4);
+              var cell6 = row.insertCell(5);
+              var cell7 = row.insertCell(6);
+                    //link for steam url
+                  var steamlink = document.createElement('a');
+                  steamlink.textContent = 'Steam';
+                  steamlink.href = player.SteamURL;
+                  cell1.appendChild(steamlink);
+                  //link for dotabuff url
+                  var dotabufflink = document.createElement('a');
+                  dotabufflink.textContent = 'DotaBuff';
+                  dotabufflink.href = player.Dotabuff;
+              cell2.appendChild(dotabufflink);
+              if(player.Role === position1){cell3.appendChild(document.createTextNode("Carry"));}
+                  if(player.Role === position2){cell3.appendChild(document.createTextNode("Mid"));}
+                  if(player.Role === position3){cell3.appendChild(document.createTextNode("Offlane"));}
+                  if(player.Role === position4){cell3.appendChild(document.createTextNode("Roamer / Support"));}
+                  if(player.Role === position5){cell3.appendChild(document.createTextNode("Support"));}
+              cell4.appendChild(document.createTextNode(player.Also));
+              cell5.appendChild(document.createTextNode((player.Others + " other(s)")));
+              if(player.Comms == "dotavoice") {
+                  // cell4.appendChild(document.createElement("./img/dota_2_icon.png"));
+                  cell6.innerHTML= "<img src='./img/dota_2_icon.png' height='42' width='42'/>";
+              }
+                 else if(player.Comms == "discordvoice") {
+                      // cell4.appendChild(document.createElement("./img/dota_2_icon.png"));
+                      cell6.innerHTML= "<img src='./img/Discord-Logo-Color.svg' height='42' width='42'/>";
+                  }
+
+                  cell7.appendChild(document.createTextNode((player.Misc)));
+
           }
           }
 

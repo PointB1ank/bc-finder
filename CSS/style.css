@@ -334,6 +334,48 @@ li{
    color: #ffffff;
     text-align: center;
     display: none;
+
+}
+
+#resultsTable{
+    margin-top: 20px;
+    color: #ffffff;
+   text-align: center;
+    border-collapse: separate;
+    border-spacing: 0px 6px;
+}
+
+#resultsTable table, th, td{
+    border: 3px solid white;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+
+
+table tr:nth-child(odd) td{
+}
+table tr:nth-child(even) td{
+    border-color: #B44335;
+}
+
+
+table { width: 100%; }
+
+#tableID{
+     /* uncomment below line out when dev is complete*/
+    /*display: none;*/
+}
+
+/* unvisited link */
+a:link {
+    color: #05ed07;
+}
+
+/* visited link */
+a:visited {
+    color: #0b6924;
 }
 
 footer{
