@@ -2,6 +2,7 @@
 
 <html>
    <head>
+
       <meta charset ="utf-8">
       <meta name="viewport" content="width=device-width">
       <meta name="description" content="Battlecup weekly group finder for players and party.">
@@ -9,18 +10,22 @@
       <meta name="author" content="Joseph Carswell">
       <title>BattleCup Group Finder</title>
       <link rel="stylesheet" href="./css/style.css">
+       <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+
    </head>
    <body>
    <div class="wrapper">
       <header>
       <div class="container">
       <div id="title">
-      <h1><span class="highlight">Dota 2 Battle Cup</span> Group Finder</h1>
+      <h1><span class="highlight">Dota 2</span> Group Finder</h1>
       </div>
       <nav>
         <ul>
-          <li class ="current"><a href="index.html">Main</a></li>
-          <li class ="current"><a href="about.html">About</a></li>
+            <li class ="current"><a href="index.html"><p id ="mainHead">Main</p></a></li>
+            <li class ="current"><a href="about.html"><p id ="aboutHead">About</p></a></li>
+            <li class ="current"><a href="login.html" id="loginLink"><p id ="loginHead">Profile</p></a></li>
         </ul>
       </nav>
       </div>
@@ -28,7 +33,7 @@
 
     <section id="showcase">
       <div class="container">
-      <h1>Find your battle cup group</h1>
+      <h1>Find your teammates</h1>
       <p>Easily search for players to fill your party or find a group to play in. <br> Search by tier, position, and more!</p>
       </div>
     </section>
@@ -38,13 +43,17 @@
         <a href="./findplayers.html"><img src="./img/findplayerbutton.png"></a>
     </span>
     <span class="button2">
-        <a href="./findparty.html"><img src="./img/findpartybutton.png"></a>
+        <a href="./findparty.html" id="findPartyLink"><img src="./img/findpartybutton.png"></a>
     </span>
     </section>
     </div>
+
+
+
      <footer>
-     <p>Battle Cup Group Finder created by PointB1ank - 2017</p>
+     <p></p>
      </footer>
    </div>
+   <script src="bcfscripts.js"></script>
    </body>
 </html>

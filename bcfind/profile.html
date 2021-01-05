@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset ="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Battlecup weekly group finder for players and party.">
+    <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
+    <meta name="author" content="Joseph Carswell">
+    <title>BattleCup Group Finder</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+
+
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div id="title">
+                <h1><span class="highlight">Dota 2</span> Group Finder</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class ="current"><a href="index.html"><p id ="mainHead">Main</p></a></li>
+                    <li class ="current"><a href="about.html"><p id ="aboutHead">About</p></a></li>
+                    <li class ="current"><a href="login.html" id="loginLink"><p id ="loginHead">Profile</p></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <div class="submitter">
+        <button id="editProfile" value="editProf" name="btnEditProf" onclick="editShow()">Edit Profile</button>
+    </div>
+    <div class="submitter">
+        <button id="sendEmail" value="sendEmail" name="btnSendEmail" onclick="sendEmail()">Send Verification Email</button>
+    </div>
+
+    <!--edit profile form-->
+    <form id="playerinputformEdit">
+        <div class="regionbuttons">
+        <span class="regionbutton1">
+  <input type="radio" form id="regiontest">
+	<input type="radio" name="region" id="North America" value="North America"/>
+	<label for="North America">North America</label>
+</span>
+            <span class="regionbutton2">
+	<input type="radio" name="region" id="Europe" value="Europe"/>
+	<label for="Europe">Europe</label>
+</span>
+        </div>
+
+
+        <div class="tierbuttons">
+  <span class="tierbutton3">
+	<input type="radio" name="tier" id="Tier 3" value="Tier 3"/>
+	<label for="Tier 3">Tier 3</label>
+</span>
+            <span class="tierbutton4">
+	<input type="radio" name="tier" id="Tier 4" value="Tier 4"/>
+	<label for="Tier 4">Tier 4</label>
+</span>
+            <span class="tierbutton5">
+	<input type="radio" name="tier" id="Tier 5" value="Tier 5"/>
+	<label for="Tier 5">Tier 5</label>
+</span>
+            <span class="tierbutton6">
+	<input type="radio" name="tier" id="Tier 6" value="Tier 6"/>
+	<label for="Tier 6">Tier 6</label>
+</span>
+            <span class="tierbutton7">
+	<input type="radio" name="tier" id="Tier 7" value="Tier 7"/>
+	<label for="Tier 7">Tier 7</label>
+</span>
+            <span class="tierbutton8">
+	<input type="radio" name="tier" id="Tier 8" value="Tier 8"/>
+	<label for="Tier 8">Tier 8</label>
+</span>
+        </div>
+
+        <div class="textinputforms">
+            http://steamcommunity.com/id/
+            <input type ="text" id="steamurlform"  name="steamurl" maxlength="20" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username / ID here'" /><br>
+
+            https://www.dotabuff.com/players/
+            <input id="dotabuffform" type="text" name="dotabuff" maxlength="20" placeholder="ID (Optional)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID (Optional)'"><br>
+        </div>
+
+
+        <div class="positionselect">
+<span class="position1">
+	<input type="radio" name="position" id="position1" value="position1"/>
+	<label for="position1">1. Carry</label>
+</span>
+            <span class="position2">
+	<input type="radio" name="position" id="position2" value="position2"/>
+	<label for="position2">2. Mid</label>
+</span>
+            <span class="position3">
+	<input type="radio" name="position" id="position3" value="position3"/>
+	<label for="position3">3. Offlane</label>
+</span>
+            <span class="position4">
+	<input type="radio" name="position" id="position4" value="position4"/>
+	<label for="position4">4. Roamer / Support</label>
+</span>
+            <span class="position5">
+	<input type="radio" name="position" id="position5" value="position5"/>
+	<label for="position5">5. Support</label>
+</span>
+        </div>
+
+        <div class="otherpositions">
+            Other Positions I play:  &#8203; &#8203;
+            <section id="capcheck">
+                <input type="checkbox" name="capcheck" id="capcheckbox" value="cap">
+                <label for="capcheckbox">Captain</label></section>
+            <section id="check1">
+                <input type="checkbox" name="position1check" id="position1check" value="pos1">
+                <label for="position1check">Carry</label></section>
+            <section id="check2">
+                <input type="checkbox" name="position2check" id="position2check" value="pos2">
+                <label for="position2check">Mid</label></section>
+            <section id="check3">
+                <input type="checkbox" name="position3check" id="position3check" value="pos3">
+                <label for="position3check">Offlaner</label></section>
+            <section id="check4">
+                <input type="checkbox" name="position4check" id="position4check" value="pos4">
+                <label for="position4check">Roamer / Support</label></section>
+            <section id="check5">
+                <input type="checkbox" name="position5check" id="position5check" value="pos5">
+                <label for="position5check">Support</label> </section>
+        </div>
+    </form>
+        <div class="submitter">
+            <input type="submit" value="Save Profile" id="updateBtn" onclick="updateSave();"> <div class="profileUpdated" id ="profileUpdated" ><p id="message">Profile Updated!</p></div>
+        </div>
+
+
+
+
+    <div class="submitter">
+        <button id="btnRemovePost"  class="btn btn-action" name="btnRemove" onclick="removePost()">Remove My Post</button>
+        <button id="btnLogout"  class="btn btn-action" name="btnLogout" onclick="logout()">Log out</button>
+    </div>
+
+
+    </div>
+    <footer>
+        <p></p>
+    </footer>
+
+
+
+
+<script src="bcfscripts.js"></script>
+</body>
+
+</html>

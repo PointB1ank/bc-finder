@@ -2,6 +2,9 @@
 
 <html>
    <head>
+       <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+
       <meta charset ="utf-8">
       <meta name="viewport" content="width=device-width">
       <meta name="description" content="Battlecup weekly group finder for players and party.">
@@ -9,18 +12,22 @@
       <meta name="author" content="Joseph Carswell">
       <title>BattleCup Group Finder</title>
       <link rel="stylesheet" href="./css/style.css">
+
+
    </head>
    <body>
+
    <div class="wrapper">
       <header>
       <div class="container">
       <div id="title">
-      <h1><span class="highlight">Dota 2 Battle Cup</span> Group Finder</h1>
+      <h1><span class="highlight">Dota 2</span> Group Finder</h1>
       </div>
       <nav>
         <ul>
-          <li class ="current"><a href="index.html">Main</a></li>
-          <li class ="current"><a href="about.html">About</a></li>
+            <li class ="current"><a href="index.html"><p id ="mainHead">Main</p></a></li>
+            <li class ="current"><a href="about.html"><p id ="aboutHead">About</p></a></li>
+            <li class ="current"><a href="login.html" id="loginLink"><p id ="loginHead">Profile</p></a></li>
         </ul>
       </nav>
       </div>
@@ -32,20 +39,29 @@
        <article id="main-col">
         <h1 class="page-title">About Battle Cup Finder</h1>
         <p>
-	The battle cup finder was created to simplify the process of finding a party for the Dota 2 weekend battle cup. Currently the only other options are to use the in-game chat, which is a nightmare, or use the reddit thread which still requires you to scroll down the page until you find someone that matches your needs.
+	The battle cup finder was created to simplify the process of finding a party for the Dota 2 weekend battle cup.
+             Being able to search for players that play a certain position in a certain tier has never been so easy.
+            When your group is full, simply remove your post with a click of a button and prepare for battle.
         </p>
         <p>
         <i><b>How often does the database reset?</b></i><br>
-	Currently the database is wiped every monday at 5pm EST. Adding yourself to the list of eligible players for the next week can be done anytime after this. 
+    Any un-removed posts will be automatically removed from the database every Sunday so those who want to start looking for a group
+            early won't be mixed in with people from the previous week.
         </p>
+           <i><b>How does it work?</b></i><br>
+           Your profile information: region, tier, steam url, etc. are saved permanently so you can re-list yourself every week with ease.
+           Start by completing your profile, then click "Find a party". Fill out some additional information about your group and click submit.
+           You will be added to the database and automatically appear on the player table.
+
        </article>
       </div>
       </div>
      </section>
 
      <footer>
-     <p>Battle Cup Group Finder created by PointB1ank - 2017</p>
+     <p></p>
      </footer>
    </div>
+   <script src="bcfscripts.js"></script>
    </body>
 </html>

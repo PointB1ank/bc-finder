@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset ="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Battlecup weekly group finder for players and party.">
+    <meta name="keybords" content="battlecup, battle, cup, weekly, group, finder, search, players, party, dota 2">
+    <meta name="author" content="Joseph Carswell">
+    <title>BattleCup Group Finder</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
+
+</head>
+<body>
+<script src="bcfscripts.js"></script>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div id="title">
+                <h1><span class="highlight">Dota 2</span> Group Finder</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class ="current"><a href="index.html"><p id ="mainHead">Main</p></a></li>
+                    <li class ="current"><a href="about.html"><p id ="aboutHead">About</p></a></li>
+                    <li class ="current"><a href="login.html" id="loginLink"><p id ="loginHead">Profile</p></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="loginforms">
+        <input type ="email" id="txtEmail"  name="loginID" maxlength="80" placeholder="Email" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Email'" /><br>
+
+        <input id="txtPassword" type="password" name="pass" maxlength="80" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'"><br>
+    </div>
+
+    <div class="submitter">
+        <!--<input type="submit" value="Submit" onclick="">-->
+        <button id="btnLogin"  class="btn btn-action" name="btnLogin">Log in</button>
+        <button id="signUp" value="signUp" onclick="location.href='register.html'">Register</button>
+    </div>
+
+
+    </div>
+    <footer>
+        <p></p>
+    </footer>
+</div>
+<script src="loginscripts.js"></script>
+
+</body>
+
+</html>

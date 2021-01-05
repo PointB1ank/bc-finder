@@ -26,10 +26,9 @@ min-height:70px;
 border-bottom:#B44335 3px solid;
 }
 
-header a {
+header a{
 color:#ffffff;
 text-decoration:none;
-text-transform uppdercase;
 font-size:20px;
 }
 
@@ -37,6 +36,10 @@ header li{
 float:left;
 display:inline;
 padding: 0 20px 0 20px;
+}
+
+header p{
+    display: inline;
 }
 
 header #title{
@@ -80,6 +83,7 @@ font-size: 40px;
 
 .buttonwrap{
 padding-bottom: 50px;
+    text-align: center;
 }
 
 #buttons{
@@ -163,12 +167,12 @@ input[type=radio]{
 
 #steamurlform
 {
-width:33%;
+width:10%;
 }
 
 #dotabuffform
 {
-width:33%;
+width:10%;
 }
 
 #steamurlform {
@@ -218,15 +222,79 @@ margin: 8px;
 padding-right: 3px;
 }
 
+.groupedwrap{
+  padding-top: 20px;
+  text-align: center;
+}
+
+#capcheck{
+    color: #fffd5d;
+}
+#add1capcheck{
+    color: #fffd5d;
+}
+#add2capcheck{
+    color: #fffd5d;
+}
+#add3capcheck{
+    color: #fffd5d;
+}
+
 .groupedwith{
   padding-top: 20px;
   text-align: center;
   color:#ffffff;
+  margin-right: 10px;
+  display: inline;
 }
 
 .groupedwith p{
   display: inline;
   color:#ffffff;
+}
+
+
+.groupedaddon1{
+    text-align: center;
+    margin-top: 10px;
+    color:#ffffff;
+    display: none;
+}
+.groupedaddon1 section{
+    display: inline;
+    border-style:outset;
+    border-width: 1px;
+    margin: 8px;
+    padding-right: 3px;
+}
+
+.groupedaddon2{
+    text-align: center;
+    margin-top: 10px;
+    color:#ffffff;
+    display: none;
+}
+
+.groupedaddon2 section{
+    display: inline;
+    border-style:outset;
+    border-width: 1px;
+    margin: 8px;
+    padding-right: 3px;
+}
+
+.groupedaddon3{
+    text-align: center;
+    margin-top: 10px;
+    color:#ffffff;
+    display: none;
+}
+.groupedaddon3 section{
+    display: inline;
+    border-style:outset;
+    border-width: 1px;
+    margin: 8px;
+    padding-right: 3px;
 }
 
 .prefvoice{
@@ -272,6 +340,109 @@ textarea {
 .submitter{
   text-align: center;
   font-size: 20px;
+  margin-top: 5px;
+}
+
+.mainresults{
+  text-align: center;
+  color: #ffffff;
+}
+
+ul{
+    list-style: none;
+}
+
+li{
+
+  display: block;
+}
+
+#resultdisplay{
+   color: #ffffff;
+    text-align: center;
+    display: none;
+
+}
+
+#resultsTable{
+    margin-top: 20px;
+    color: #ffffff;
+   text-align: center;
+    border-collapse: separate;
+    border-spacing: 0px 6px;
+}
+
+#resultsTable table, th, td{
+    border: 3px solid white;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 200px;
+}
+
+
+
+table tr:nth-child(odd) td{
+}
+table tr:nth-child(even) td{
+    border-color: #B44335;
+}
+
+
+table { width: 100%; }
+
+#tableID{
+     /* uncomment below line out when dev is complete*/
+    display: none;
+}
+
+/* unvisited link */
+a:link {
+    color: #05ed07;
+}
+
+/* visited link */
+a:visited {
+    color: #0b6924;
+}
+
+.loginforms{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 03%;
+    margin-bottom: 10px;
+}
+#loginform{
+    margin-bottom: 10px;
+}
+#txtEmail{
+    margin-bottom: 5px;
+}
+
+.regisrationforms{
+    color: #ffffff;
+    text-align: center;
+    padding-top: 03%;
+    margin-bottom: 10px;
+}
+
+#playerinputformEdit{
+    display: none;
+}
+
+#updateBtn{
+    display: none;
+}
+
+.profileUpdated{
+    text-align: center;
+    color: #fffd5d;
+    display: none;
+}
+
+.groupPosted{
+    text-align: center;
+    color: #fffd5d;
+    display: none;
 }
 
 footer{
@@ -280,5 +451,79 @@ color:#B44335;
 position:fixed;
 bottom:0;
 text-align: center;
+    align-content: flex-start;
 width:100%;
+    float:right;
+    display: inline-flex;
+    flex-wrap:nowrap;
+    align-items: right;
+    justify-content: flex-end;
+}
+
+#dropup{
+float: right;
+position: fixed;
+right:15px;
+bottom: 53px;
+width: 250px;
+background: white;
+height: 250px;
+overflow-y: scroll;
+    display:inline;
+
+}
+
+#msgBtn{
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+    width: 20%;
+position: relative;
+right:100px;
+padding: 5px 10px;
+float: right;
+text-align: center;
+display: none;
+text-decoration: none;
+font-size: 16px;
+}
+
+#msgBtn:hover {
+    background-color: #3e8e41;
+}
+
+#inputMsg {
+    position: fixed;
+   vertical-align: bottom;
+    bottom:32px;
+    width: 198px;
+display: inline-block;
+}
+
+#sendMsgBtn {
+float: left;
+position: fixed;
+    vertical-align: bottom;
+    bottom:32px;
+    right: 15px;
+    display: inline-block;
+}
+
+#closeChatBtn{
+    position: fixed;
+    float: right;
+    right: 15px;
+    bottom: 303px;
+}
+#minChatBtn{
+    position: fixed;
+    float: right;
+    right: 41px;
+    bottom: 303px;
+}
+
+#bcCheck {
+    text-align: center;
+    color: white;
+    text-size:30px;
 }
